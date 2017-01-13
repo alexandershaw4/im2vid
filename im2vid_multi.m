@@ -7,11 +7,12 @@ end
 
 pathname = pwd;
 
-for i = 1:length(h)
-    set(1, 'currentaxes', h(i))
-    D        = 'right'; 
-    cam      = camlight(D);
-end
+% for i = 1:length(h)
+%     set(1, 'currentaxes', h(i))
+%     D        = 'right'; 
+%     cam      = camlight(D);
+% end
+
 vidObj   = VideoWriter(fpath,'MPEG-4');
 set(vidObj,'Quality',100);
 open(vidObj);
@@ -24,7 +25,7 @@ for num = 1:360
     for i = 1:length(h)
         set(1, 'currentaxes', h(i))
         camorbit(1,0,'camera');
-        camlight(cam); drawnow;
+        %camlight(cam); drawnow;
     end
         print(gcf,[pathname,'temp.bmp'],'-dbmp');
         tempimg   = imread([pathname,'temp.bmp']);
