@@ -19,13 +19,17 @@ for num = 1:360
     camorbit(1,0,'camera');
     camlight(cam); drawnow;
     
-    print(gcf,[pathname,'temp.bmp'],'-dbmp');
-    tempimg   = imread([pathname,'temp.bmp']);
+%     print(gcf,[pathname,'temp.bmp'],'-dbmp');
+%     tempimg   = imread([pathname,'temp.bmp']);
+    print(gcf,[pathname,'temp.png'],'-dpng','-r600');
+    tempimg   = imread([pathname,'temp.png']);
+    
     currFrame = im2frame(tempimg);
-    currFrame.cdata = imresize(currFrame.cdata,[534,735]);
+    %currFrame.cdata = imresize(currFrame.cdata,[534,735]);
+    currFrame.cdata = imresize(currFrame.cdata,[1068,1470]);
     writeVideo(vidObj,currFrame);
 end
 
 close(vidObj);
-delete([pathname,'temp.bmp']);
+delete([pathname,'temp.png']);
 fprintf('finished\n');
