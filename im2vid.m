@@ -21,8 +21,8 @@ for num = 1:360
     
 %     print(gcf,[pathname,'temp.bmp'],'-dbmp');
 %     tempimg   = imread([pathname,'temp.bmp']);
-    print(gcf,[pathname,'temp.png'],'-dpng','-r600');
-    tempimg   = imread([pathname,'temp.png']);
+    print(gcf,[pathname,'/temp.png'],'-dpng','-r600');
+    tempimg   = imread([pathname,'/temp.png']);
     
     currFrame = im2frame(tempimg);
     %currFrame.cdata = imresize(currFrame.cdata,[534,735]);
