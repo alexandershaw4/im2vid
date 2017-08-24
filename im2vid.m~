@@ -44,19 +44,14 @@ for num = 1:360
             currFrame = getframe(gcf);
             writeVideo(vidObj,currFrame);
         case 'background'
-            
-            print(gcf,[pathname,'/temp.png'],'-dpng','-r600');
-            tempimg   = imread([pathname,'/temp.png']);
-
-            currFrame = im2frame(tempimg);
-            currFrame.cdata = imresize(currFrame.cdata,[1068,1470]);
-            writeVideo(vidObj,currFrame);
-    end
+    print(gcf,[pathname,'/temp.png'],'-dpng','-r600');
+    tempimg   = imread([pathname,'/temp.png']);
+    
+    currFrame = im2frame(tempimg);
+    currFrame.cdata = imresize(currFrame.cdata,[1068,1470]);
+    writeVideo(vidObj,currFrame);
 end
 
 close(vidObj);
-switch method
-    case 'background'
-        delete([pathname,'temp.png']);
-end
+%delete([pathname,'temp.png']);
 fprintf('finished\n');
